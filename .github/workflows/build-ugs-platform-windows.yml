@@ -9,22 +9,22 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
-      - name: Set up Java 17
-        uses: actions/setup-java@v4
+      - name: Set up Java 25
+        uses: actions/setup-java@v6
         with:
           distribution: temurin
-          java-version: "17"
+          java-version: "25"
           cache: maven
 
       - name: Build UGS
         run: |
-          mvn clean install -DskipTests
+          ./mvnw clean install -DskipTests
 
       - name: Package UGS Platform Windows x64
         run: |
-          mvn package \
+          ./mvnw package \
             -pl ugs-platform/application \
             -P create-win64-package \
             -DskipTests=true
