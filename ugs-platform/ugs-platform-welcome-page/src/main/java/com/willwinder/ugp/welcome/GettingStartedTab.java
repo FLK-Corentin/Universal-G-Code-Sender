@@ -29,7 +29,7 @@ import java.awt.event.ActionEvent;
 public class GettingStartedTab extends AbstractHtmlTab {
 
     public GettingStartedTab() {
-        super("Getting Started", GettingStartedTab.class.getResourceAsStream("/com/willwinder/ugp/welcome/resources/getstarted.html"));
+        super("Bien démarrer", GettingStartedTab.class.getResourceAsStream("/com/willwinder/ugp/welcome/resources/getstarted.html"));
     }
 
     public void openLink(String link) {
