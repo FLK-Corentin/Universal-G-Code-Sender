@@ -26,7 +26,7 @@ import com.willwinder.ugp.welcome.content.AbstractHtmlTab;
 public class FeaturesTab extends AbstractHtmlTab {
 
     public FeaturesTab() {
-        super("Features", FeaturesTab.class.getResourceAsStream("/com/willwinder/ugp/welcome/resources/features.html"));
+        super("Fonctionnalités", FeaturesTab.class.getResourceAsStream("/com/willwinder/ugp/welcome/resources/features.html"));
     }
 
     @Override
