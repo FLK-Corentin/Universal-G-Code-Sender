@@ -47,7 +47,7 @@ class ShowNextTime extends JPanel
         super(new BorderLayout());
         setOpaque(false);
 
-        button = new JCheckBox("Show Next Time"); // NOI18N
+        button = new JCheckBox("Afficher au prochain démarrage"); // NOI18N
         button.setSelected(WelcomePageOptions.getDefault().isShowOnStartup());
         button.setOpaque(false);
         button.setForeground(Color.white);
