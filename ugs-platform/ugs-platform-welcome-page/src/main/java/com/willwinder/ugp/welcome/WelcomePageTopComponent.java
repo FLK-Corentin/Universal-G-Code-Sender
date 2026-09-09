@@ -49,8 +49,8 @@ public final class WelcomePageTopComponent extends TopComponent {
     protected final static String Category = "Help";
     protected final static String ActionId = "com.willwinder.ugp.welcome.WelcomePageTopComponent";
     protected final static String Path = "Menu/Help";
-    protected final static String Title = "Welcome Page";
-    protected final static String Tooltip = "Welcome Page";
+    protected final static String Title = "Page d'accueil";
+    protected final static String Tooltip = "Page d'accueil";
     // Flag to prevent opening the start page once, allowing it to be opened manually.
     private static boolean firstTimeOpen = true;
 
