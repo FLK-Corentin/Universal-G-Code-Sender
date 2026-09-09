@@ -48,7 +48,7 @@ public class RecentWorkTab extends AbstractTab {
     private final transient BackendAPI backend;
 
     public RecentWorkTab() {
-        super("Recent Work");
+        super("Travail récent");
         backend = LookupService.lookup(BackendAPI.class);
     }
 
@@ -56,7 +56,7 @@ public class RecentWorkTab extends AbstractTab {
     protected JComponent buildContent() {
         JPanel recentFiles = new JPanel(new MigLayout("fillx, wrap 1"));
         recentFiles.setOpaque(false);
-        JLabel fileLabel = new JLabel("Files");
+        JLabel fileLabel = new JLabel("Fichiers");
         fileLabel.setFont(Constants.CONTENT_HEADER_FONT);
         fileLabel.setForeground(Constants.COLOR_TEXT);
         recentFiles.add(fileLabel);
@@ -71,12 +71,12 @@ public class RecentWorkTab extends AbstractTab {
             }
         } else {
             LOGGER.log(Level.INFO, "No files for recent work tab.");
-            recentFiles.add(new JLabel("none yet."));
+            recentFiles.add(new JLabel("Aucun pour le moment."));
         }
 
         JPanel recentDirectories = new JPanel(new MigLayout("fillx, wrap 1"));
         recentDirectories.setOpaque(false);
-        JLabel dirLabel = new JLabel("Directories");
+        JLabel dirLabel = new JLabel("Dossiers");
         dirLabel.setFont(Constants.CONTENT_HEADER_FONT);
         dirLabel.setForeground(Constants.COLOR_TEXT);
         recentDirectories.add(dirLabel);
@@ -88,7 +88,7 @@ public class RecentWorkTab extends AbstractTab {
             }
         } else {
             LOGGER.log(Level.INFO, "No directories for recent work tab.");
-            recentDirectories.add(new JLabel("none yet."));
+            recentDirectories.add(new JLabel("Aucun pour le moment."));
         }
 
         JPanel panel = new JPanel(new GridLayout(1, 0));
