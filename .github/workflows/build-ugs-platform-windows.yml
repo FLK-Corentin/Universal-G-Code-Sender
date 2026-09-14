@@ -34,8 +34,8 @@ jobs:
         with:
           name: UGS-Platform-Windows-x64
           path: ugs-platform/application/target/win64-ugs-platform-app-*.zip
-
-            msi:
+          
+msi:
     needs: build
     runs-on: windows-2022
 
