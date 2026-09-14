@@ -61,7 +61,7 @@ import java.util.stream.Stream;
 public class TranslateToZeroAction extends CookieAction implements UGSEventListener {
 
     private static final Logger LOGGER = Logger.getLogger(TranslateToZeroAction.class.getSimpleName());
-    public static final String NAME = "Translate to zero";
+    public static final String NAME = "Deplacer au zero";
     public static final String ICON_BASE = "icons/translate.svg";
     public static final double ARC_SEGMENT_LENGTH = 0.5;
     private final transient BackendAPI backend;
