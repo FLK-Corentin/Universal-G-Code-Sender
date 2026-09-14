@@ -32,7 +32,7 @@ public class RotateRightAction extends AbstractRotateAction {
 
     public RotateRightAction() {
         super(Math.PI / 2);
-        putValue(NAME, "Rotate right");
+        putValue(NAME, "Rotation droite");
     }
 
     @Override
