@@ -60,7 +60,19 @@ public void run() {
     // ============================
     // MENU SUPERIEUR
     // ============================
+    UIManager.put("MenuBar.selectionForeground", text);
 
+    UIManager.put("Menu.selectionForeground", text);
+
+    UIManager.put("MenuItem.selectionForeground", text);
+
+    UIManager.put("CheckBoxMenuItem.foreground", text);
+    UIManager.put("CheckBoxMenuItem.selectionForeground", text);
+    UIManager.put("CheckBoxMenuItem.selectionBackground", blue);
+
+    UIManager.put("RadioButtonMenuItem.foreground", text);
+    UIManager.put("RadioButtonMenuItem.selectionForeground", text);
+    UIManager.put("RadioButtonMenuItem.selectionBackground", blue);
     UIManager.put("MenuBar.background", background);
     UIManager.put("MenuBar.foreground", text);
 
@@ -190,6 +202,23 @@ public void run() {
     // ============================
     // CONSOLE / EDITEURS
     // ============================
+    UIManager.put("List.selectionBackground", blue);
+    UIManager.put("List.selectionForeground", text);
+
+    UIManager.put("Tree.selectionBackground", blue);
+    UIManager.put("Tree.selectionForeground", text);
+
+    UIManager.put("ToggleButton.background", panelLight);
+    UIManager.put("ToggleButton.foreground", text);
+    UIManager.put("ToggleButton.selectedBackground", blue);
+    UIManager.put("ToggleButton.selectedForeground", text);
+
+    UIManager.put("TabbedPane.selectedForeground", text);
+    UIManager.put("OptionPane.background", panel);
+    UIManager.put("OptionPane.foreground", text);
+
+    UIManager.put("ScrollPane.background", panel);
+    UIManager.put("Viewport.background", panel);
 
     UIManager.put("TextArea.background", background);
     UIManager.put("TextArea.foreground", text);
