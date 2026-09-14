@@ -334,6 +334,9 @@ public class LocalizingService {
         // Update menu's with localized names.
 
         // Menu Folders
+        ars.createAndLocalizeFullMenu(MENU_WINDOW,
+        String.format("Menu/%s",
+                Localization.getString("platform.menu.window")));
         ars.createAndLocalizeFullMenu(MENU_WINDOW_CLASSIC,
                 String.format("Menu/%s/%s",
                         Localization.getString("platform.menu.window"),
@@ -345,6 +348,9 @@ public class LocalizingService {
         ars.createAndLocalizeFullMenu(MENU_VISUALIZER,
                 String.format("Menu/%s",
                         Localization.getString("platform.window.visualizer")));
+        ars.createAndLocalizeFullMenu(MENU_PROGRAM,
+        String.format("Menu/%s",
+                Localization.getString("platform.menu.program")));
 
         // Localize TopComponent Menu Items
         ars.overrideActionName(ActionsCategory, ActionsActionId, ActionsTitle);
