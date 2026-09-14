@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+
+  <Package
+      Name="UGS (Version Fablab en Kit)"
+      Manufacturer="Fablab en Kit"
+      Version="1.0.0"
+      Language="1036"
+      UpgradeCode="B921441D-C66A-4E88-B332-2C0787796082"
+      Scope="perMachine"
+      InstallerVersion="500">
+
+    <MajorUpgrade
+        DowngradeErrorMessage="Une version plus récente de UGS - Fablab en Kit est déjà installée." />
+
+    <!-- Important : le CAB est intégré au MSI -->
+    <MediaTemplate EmbedCab="yes" />
+
+    <StandardDirectory Id="ProgramFiles64Folder">
+
+      <Directory Id="INSTALLFOLDER"
+                 Name="UGS - Fablab en Kit">
+
+        <!-- Toute la version portable UGS -->
+        <Files Include="$(AppSource)\**" />
+
+      </Directory>
+
+    </StandardDirectory>
+
+
+    <!-- Raccourci menu Démarrer -->
+    <StandardDirectory Id="ProgramMenuFolder">
+
+      <Component Id="StartMenuShortcutComponent"
+                 Guid="*">
+
+        <Shortcut
+            Id="UGSStartMenuShortcut"
+            Name="UGS - Fablab en Kit"
+            Description="Pilotage CNC - Version Fablab en Kit"
+            Target="[INSTALLFOLDER]bin\ugsplatform64.exe"
+            WorkingDirectory="INSTALLFOLDER"
+            Icon="ProductIcon" />
+
+        <RegistryValue
+            Root="HKLM"
+            Key="Software\Fablab en Kit\UGS"
+            Name="Installed"
+            Type="integer"
+            Value="1"
+            KeyPath="yes" />
+
+      </Component>
+
+    </StandardDirectory>
+
+
+    <!-- Icône Applications installées + raccourci -->
+    <Icon
+        Id="ProductIcon"
+        SourceFile="$(IconSource)" />
+
+    <Property
+        Id="ARPPRODUCTICON"
+        Value="ProductIcon" />
+
+    <Property
+        Id="ARPNOREPAIR"
+        Value="1" />
+
+  </Package>
+
+</Wix>
