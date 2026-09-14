@@ -60,7 +60,7 @@ public class MirrorAction extends CookieAction implements UGSEventListener {
 
     public static final String ICON_BASE = "icons/mirror.svg";
 
-    public static final String NAME = "Mirror";
+    public static final String NAME = "Miroir";
     public static final double ARC_SEGMENT_LENGTH = 0.5;
     private final transient BackendAPI backend;
 
