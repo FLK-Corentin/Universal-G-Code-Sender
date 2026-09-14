@@ -15,7 +15,7 @@
         DowngradeErrorMessage="Une version plus récente de UGS - Fablab en Kit est déjà installée." />
 
     <!-- Important : le CAB est intégré au MSI -->
-    <MediaTemplate EmbedCab="yes" />
+    <MediaTemplate EmbedCab="yes"  CompressionLevel="high"  />
 
     <StandardDirectory Id="ProgramFiles64Folder">
 
