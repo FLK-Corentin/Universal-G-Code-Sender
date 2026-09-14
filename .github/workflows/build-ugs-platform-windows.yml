@@ -4,6 +4,11 @@ on:
   workflow_dispatch:
 
 jobs:
+
+  # ============================
+  # 1. CONSTRUCTION DE UGS
+  # ============================
+
   build:
     runs-on: ubuntu-24.04
 
@@ -34,4 +39,75 @@ jobs:
         with:
           name: UGS-Platform-Windows-x64
           path: ugs-platform/application/target/win64-ugs-platform-app-*.zip
-        
+
+
+  # ============================
+  # 2. CONSTRUCTION DU MSI
+  # ============================
+
+  msi:
+    needs: build
+    runs-on: windows-2022
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Télécharger UGS compilé
+        uses: actions/download-artifact@v4
+        with:
+          name: UGS-Platform-Windows-x64
+          path: portable
+
+      - name: Extraire UGS
+        shell: pwsh
+        run: |
+          $zip = Get-ChildItem "${{github.workspace}}\portable" -Filter "*.zip" | Select-Object -First 1
+
+          if (-not $zip) {
+              throw "Archive UGS introuvable."
+          }
+
+          New-Item -ItemType Directory -Force -Path "${{github.workspace}}\msi-src"
+
+          Expand-Archive `
+            -Path $zip.FullName `
+            -DestinationPath "${{github.workspace}}\msi-src"
+
+          $exe = Get-ChildItem "${{github.workspace}}\msi-src" `
+            -Recurse `
+            -Filter "ugsplatform64.exe" |
+            Select-Object -First 1
+
+          if (-not $exe) {
+              throw "ugsplatform64.exe introuvable."
+          }
+
+          $binFolder = Split-Path $exe.FullName -Parent
+          $appFolder = Split-Path $binFolder -Parent
+
+          "APP_SOURCE=$appFolder" >> $env:GITHUB_ENV
+
+          Write-Host "UGS trouve dans : $appFolder"
+
+      - name: Installer WiX
+        shell: pwsh
+        run: |
+          dotnet tool install --global wix --version 5.0.2
+
+      - name: Construire le MSI
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path "${{github.workspace}}\dist"
+
+          wix build "${{github.workspace}}\installer\Package.wxs" `
+            -arch x64 `
+            -d "AppSource=$env:APP_SOURCE" `
+            -d "IconSource=${{github.workspace}}\ugs-platform\application\src\main\app-resources\icon.ico" `
+            -o "${{github.workspace}}\dist\UGS-Fablab-en-Kit-1.0.0-x64.msi"
+
+      - name: Publier le MSI
+        uses: actions/upload-artifact@v4
+        with:
+          name: UGS-Fablab-en-Kit-MSI
+          path: ${{github.workspace}}\dist\UGS-Fablab-en-Kit-1.0.0-x64.msi
