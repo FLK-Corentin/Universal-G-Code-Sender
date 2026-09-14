@@ -33,29 +33,29 @@ import org.openide.util.lookup.ServiceProvider;
  */
 @ServiceProvider(service=LocalizingService.class)
 public class LocalizingService {
-    public static final String MENU_WINDOW = "Menu/Window";
-    public static final String MENU_WINDOW_PLUGIN = MENU_WINDOW +"/Plugins";
-    public static final String MENU_WINDOW_CLASSIC = MENU_WINDOW + "/Classic";
-    public static final String MENU_FILE = "Menu/File";
-    public static final String MENU_EDIT = "Menu/Edit";
-    public static final String MENU_TOOLS = "Menu/Tools";
+    public static final String MENU_WINDOW = "Menu/Fenêtre";
+    public static final String MENU_WINDOW_PLUGIN = MENU_WINDOW +"/Extensions";
+    public static final String MENU_WINDOW_CLASSIC = MENU_WINDOW + "/Base";
+    public static final String MENU_FILE = "Menu/Fichier";
+    public static final String MENU_EDIT = "Menu/Edition";
+    public static final String MENU_TOOLS = "Menu/Outils";
     public static final String MENU_MACHINE = "Menu/Machine";
-    public static final String MENU_MACHINE_PROBE = "Menu/Machine/Probe";
-    public static final String MENU_PROGRAM = "Menu/Program";
-    public static final String MENU_MACHINE_JOG = "Menu/Machine/Jog";
-    public static final String MENU_MACHINE_JOG_STEP_SIZE = "Menu/Machine/Jog/Step Size";
+    public static final String MENU_MACHINE_PROBE = "Menu/Machine/Sonde";
+    public static final String MENU_PROGRAM = "Menu/Programme";
+    public static final String MENU_MACHINE_JOG = "Menu/Machine/Déplacement";
+    public static final String MENU_MACHINE_JOG_STEP_SIZE = "Menu/Machine/Déplacement/Pas";
     public static final String MENU_MACHINE_ACTIONS = "Menu/Machine/Actions";
-    public static final String MENU_VISUALIZER = "Menu/Visualizer";
+    public static final String MENU_VISUALIZER = "Menu/Visualiseur";
     public static final String MENU_MACROS = "Menu/Machine/Macros";
 
-    public static final String CATEGORY_WINDOW = "Window";
+    public static final String CATEGORY_WINDOW = "Fenêtre";
     public static final String CATEGORY_MACHINE = "Machine";
-    public static final String CATEGORY_PROGRAM = "Program";
-    public static final String CATEGORY_FILE = "File";
-    public static final String CATEGORY_VISUALIZER = "Visualizer";
-    public static final String CATEGORY_EDIT = "Edit";
-    public static final String CATEGORY_DESIGNER = "Designer";
-    public static final String CATEGORY_TOOLS = "Tools";
+    public static final String CATEGORY_PROGRAM = "Programme";
+    public static final String CATEGORY_FILE = "Fichier";
+    public static final String CATEGORY_VISUALIZER = "Visualiseur";
+    public static final String CATEGORY_EDIT = "Edition";
+    public static final String CATEGORY_DESIGNER = "Design";
+    public static final String CATEGORY_TOOLS = "Outils";
 
     // Initialize backend (locale setting) before we load localized strings.
     public static final String lang = LookupService.lookup(BackendAPI.class).getSettings().getLanguage();
